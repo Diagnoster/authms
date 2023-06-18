@@ -1,7 +1,8 @@
 plugins {
 	id 'java'
+	id 'eclipse'
 	id 'org.springframework.boot' version '3.1.0'
-	id 'io.spring.dependency-management' version '1.1.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
 group = 'br.com.bantads'
@@ -19,6 +20,9 @@ configurations {
 
 repositories {
 	mavenCentral()
+	flatDir {
+        dirs 'libs'
+	}
 }
 
 dependencies {
@@ -31,6 +35,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.amqp:spring-rabbit-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+	implementation name: 'modelmapper-3.0.0'
+	implementation 'org.postgresql:postgresql'
 }
 
 tasks.named('test') {
