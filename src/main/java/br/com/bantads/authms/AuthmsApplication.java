@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AuthmsApplication {
+public class AuthMsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AuthmsApplication.class, args);
+		SpringApplication.run(AuthMsApplication.class, args);
 	}
 
 }
