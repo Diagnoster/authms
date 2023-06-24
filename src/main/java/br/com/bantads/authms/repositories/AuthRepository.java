@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import br.com.bantads.authms.models.Auth;
 
-public interface AuthRepository extends JpaRepository<Auth, UUID> {
+public interface AuthRepository extends JpaRepository<Auth, Integer> {
 	
 	public Auth findByEmail(String email);
 		

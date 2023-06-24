@@ -52,9 +52,13 @@ public class AuthREST {
         throw new UnsupportedOperationException();
     }
 
-    @GetMapping("/auth/{id}")
-    public ResponseEntity<AuthDTO> buscarLogin(@PathVariable("id") int id) {
-        throw new UnsupportedOperationException();
+    @GetMapping("/auth/{email}")
+    public ResponseEntity<AuthDTO> buscarLogin(@PathVariable("email") String email) {
+    	Auth authh = authRepository.findByEmail(email);
+    	if (authh != null)
+    		return ResponseEntity.status(200).body(mapper.map(authh, AuthDTO.class));
+    	else
+			return ResponseEntity.status(401).build();
     }
 
     @GetMapping("/auth")
@@ -62,6 +66,18 @@ public class AuthREST {
         throw new UnsupportedOperationException();
     }
 	
-	
-
+    //login
+	@PostMapping("/login")
+	public ResponseEntity<AuthDTO> login(@RequestBody AuthDTO auth) {
+		String email = auth.getEmail();
+		String senha = auth.getSenha();
+		
+		Auth authh = authRepository.findByEmail(email);
+		
+		if(authh != null && authh.getSenha().equals(senha) && authh.getEmail().equals(email)) {
+			return ResponseEntity.status(200).body(mapper.map(authh, AuthDTO.class));
+		} else {
+			return ResponseEntity.status(401).build();
+		}
+	}
 }
