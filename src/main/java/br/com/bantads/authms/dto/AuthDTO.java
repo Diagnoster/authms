@@ -1,6 +1,8 @@
 package br.com.bantads.authms.dto;
 
-public class AuthDTO {
+import java.io.Serializable;
+
+public class AuthDTO implements Serializable {
 
 	private Integer id;
 	

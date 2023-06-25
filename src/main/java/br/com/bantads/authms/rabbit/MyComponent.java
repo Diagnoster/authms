@@ -17,7 +17,7 @@ public class MyComponent implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // Exemplo de uso do serviço de envio de mensagens
-        String message = "Hello, RabbitMQ!";
-        messageSenderService.sendMessage(message);
+       /* String message = "Hello, RabbitMQ!";
+        messageSenderService.sendMessage(message);*/
     }
 }

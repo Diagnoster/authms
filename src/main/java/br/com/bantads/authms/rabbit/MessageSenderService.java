@@ -12,19 +12,19 @@ public class MessageSenderService {
     private final RabbitTemplate rabbitTemplate;
     private final QueueCreationService queueCreationService;
     private final String exchangeName = ""; // Defina o nome da exchange conforme sua necessidade
-    private final String routingKey = "auth-queue"; // Defina a chave de roteamento conforme sua necessidade
-    private final String queueName = "auth-queue"; // Defina o nome da fila conforme sua necessidade
+    private final String routingKey = "AUTENTICACAO"; // Defina a chave de roteamento conforme sua necessidade
+    private final String queueName = "AUTENTICACAO"; // Defina o nome da fila conforme sua necessidade
 
     @Autowired
     public MessageSenderService(RabbitTemplate rabbitTemplate, QueueCreationService queueCreationService) {
         this.rabbitTemplate = rabbitTemplate;
         this.queueCreationService = queueCreationService;
-        createQueueIfNotExists();
+        //createQueueIfNotExists();
     }
 
-    private void createQueueIfNotExists() {
+/*    private void createQueueIfNotExists() {
         queueCreationService.createQueue(queueName);
-    }
+    }*/
 
     public void sendMessage(String message) {
         rabbitTemplate.convertAndSend(exchangeName, routingKey, message);

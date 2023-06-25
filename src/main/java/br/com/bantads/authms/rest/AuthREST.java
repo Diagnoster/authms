@@ -47,11 +47,6 @@ public class AuthREST {
         throw new UnsupportedOperationException();
     }
 
-    @DeleteMapping("/auth/{id}")
-    public ResponseEntity<AuthDTO> removerLogin(@PathVariable("id") int id) {
-        throw new UnsupportedOperationException();
-    }
-
     @GetMapping("/auth/{email}")
     public ResponseEntity<AuthDTO> buscarLogin(@PathVariable("email") String email) {
     	Auth authh = authRepository.findByEmail(email);
@@ -59,11 +54,6 @@ public class AuthREST {
     		return ResponseEntity.status(200).body(mapper.map(authh, AuthDTO.class));
     	else
 			return ResponseEntity.status(401).build();
-    }
-
-    @GetMapping("/auth")
-    public ResponseEntity<List<AuthDTO>> buscarTodosLogins(@PathVariable("id") int id) {
-        throw new UnsupportedOperationException();
     }
 	
     //login

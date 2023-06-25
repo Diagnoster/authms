@@ -26,7 +26,6 @@ public class Auth implements Serializable, Comparable<Auth>{
 	public Auth() { }
 	
 	public Auth(Integer id, String nome, String email, String senha, String cargo) {
-		super();
 		this.id = id;
 		this.email = email;
 		this.senha = senha;

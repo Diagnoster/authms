@@ -15,11 +15,11 @@ public class QueueCreationService {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void createQueue(String queueName) {
+ /*   public void createQueue(String queueName) {
         rabbitTemplate.execute(channel -> {
             channel.queueDeclare(queueName, true, false, false, null);
             return null;
         });
         System.out.println("Fila criada: " + queueName);
-    }
+    }*/
 }
